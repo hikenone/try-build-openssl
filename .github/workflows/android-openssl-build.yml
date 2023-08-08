@@ -9,7 +9,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     env:
-      ANDROID_NDK_HOME: empty
+      ANDROID_NDK_HOME: emptya
       OPENSSL_DIR: E
 
     steps: 
