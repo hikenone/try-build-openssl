@@ -18,10 +18,12 @@ jobs:
 
       - name: get openssl src
         run: |
+            mkdir -p openssl
+            cd openssl
             curl https://www.openssl.org/source/openssl-1.1.1v.tar.gz -o openssl.tar.gz
             ls
             tar -xvzf openssl.tar.gz
-            ls
+            ls -a
     
     
     
