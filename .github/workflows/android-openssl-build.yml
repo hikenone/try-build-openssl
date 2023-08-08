@@ -1,1 +1,20 @@
 name: android openssl build
+on:
+  workflow_dispatch:
+  push:
+    branches:
+    - main
+    - master
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env:
+      ANDROID_NDK_HOME: empty
+
+    steps: 
+      - name: update ubuntu
+        run: |
+            sudo apt-get update ;
+    
+    
+    
