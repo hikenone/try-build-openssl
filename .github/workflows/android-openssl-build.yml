@@ -10,6 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       ANDROID_NDK_HOME: empty
+      OPENSSL_DIR: E
 
     steps: 
       - name: update ubuntu
@@ -21,9 +22,25 @@ jobs:
             mkdir -p openssl
             cd openssl
             curl https://www.openssl.org/source/openssl-1.1.1v.tar.gz -o openssl.tar.gz
-            ls
             tar -xvzf openssl.tar.gz
-            ls -a
-    
-    
+            cd openssl-1.1.1v
+            echo "OPENSSL_DIR=$(pwd)" >> $GITHUB_ENV ;
+            echo $OPENSSL_DIR
+
+      - name: get Android NDK
+        run: |     
+              mkdir -p ndk
+              cd ndk
+              curl https://dl.google.com/android/repository/android-ndk-r22b-linux-x86_64.zip -o ndk.zip
+              unzip ndk.zip
+              cd android-ndk-r22b
+              echo "ANDROID_NDK_HOME=$(pwd)" >> $GITHUB_ENV ;
+
+      - name: build OPENSSL
+        run: |
+              cd openssl
+              cd openssl-1.1.1v
+              ./Configure android-arm shared
+              
+
     
