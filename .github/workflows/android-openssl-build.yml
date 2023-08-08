@@ -19,7 +19,7 @@ jobs:
       - name: get openssl src
         run: |
             curl https://www.openssl.org/source/openssl-1.1.1v.tar.gz -o openssl.tar.gz
-            unzip openssl.tar.gz
+            tar -xfzf openssl.tar.gz
             ls
     
     
