@@ -15,6 +15,12 @@ jobs:
       - name: update ubuntu
         run: |
             sudo apt-get update ;
+
+      - name: get openssl src
+        run: |
+            curl https://www.openssl.org/source/openssl-1.1.1v.tar.gz -o openssl.tar.gz
+            unzip openssl.tar.gz
+            ls
     
     
     
