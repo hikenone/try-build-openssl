@@ -9,7 +9,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     env:
-      ANDROID_NDK_HOME: emptya
+      ANDROID_NDK_ROOT: emptya
       OPENSSL_DIR: E
 
     steps: 
@@ -36,7 +36,7 @@ jobs:
               curl https://dl.google.com/android/repository/android-ndk-r22b-linux-x86_64.zip -o ndk.zip
               unzip ndk.zip
               cd android-ndk-r22b
-              echo "ANDROID_NDK_HOME=$(pwd)" >> $GITHUB_ENV ;
+              echo "ANDROID_NDK_ROOT=$(pwd)" >> $GITHUB_ENV ;
 
       - name: using swex-script
         run: |
