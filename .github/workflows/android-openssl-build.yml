@@ -38,10 +38,9 @@ jobs:
 
       - name: build OPENSSL
         run: |
-              date
               cd openssl
               cd openssl-1.1.1v
-              ./Configure android-arm shared
+              ./Configure android-arm shared PATH=$ANDROID_NDK_HOME/toolchains/llvm/prebuilt/:$PATH
 
               
 
