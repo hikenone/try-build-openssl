@@ -16,6 +16,8 @@ jobs:
       - name: update ubuntu
         run: |
             sudo apt-get update ;
+            sudo apt-get install xutils-dev
+
 
       - name: get openssl src
         run: |
@@ -36,12 +38,21 @@ jobs:
               cd android-ndk-r22b
               echo "ANDROID_NDK_HOME=$(pwd)" >> $GITHUB_ENV ;
 
-      - name: build OPENSSL
+      - name: using swex-script
         run: |
-              cd openssl
-              cd openssl-1.1.1v
-              CC=clang \
-              ./Configure android-arm shared PATH=$ANDROID_NDK_HOME/toolchains/llvm/prebuilt/bin/:$PATH
+              mkdir -p swex
+              cd swex;
+              git clone https://github.com/akontsevich/openssl-android-build.git
+              export OPENSSL_VERSION="openssl-1.1.1v"
+              ./generate-headers.sh
+              ./build-android-clang.sh
+
+      #- name: build OPENSSL
+      #  run: |
+      #        cd openssl
+      #        cd openssl-1.1.1v
+      #        CC=clang \
+      #        ./Configure android-arm shared PATH=$ANDROID_NDK_HOME/toolchains/llvm/prebuilt/bin/:$PATH
 
               
 
