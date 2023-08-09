@@ -43,6 +43,7 @@ jobs:
               mkdir -p swex
               cd swex;
               git clone https://github.com/akontsevich/openssl-android-build.git
+              cd openssl-android-build ;
               export OPENSSL_VERSION="openssl-1.1.1v"
               ./generate-headers.sh
               ./build-android-clang.sh
