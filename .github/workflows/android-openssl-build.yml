@@ -41,7 +41,7 @@ jobs:
               cd openssl
               cd openssl-1.1.1v
               CC=clang \
-              ./Configure android-arm shared PATH=$ANDROID_NDK_HOME/toolchains/llvm/prebuilt/:$PATH
+              ./Configure android-arm shared PATH=$ANDROID_NDK_HOME/toolchains/llvm/prebuilt/bin/:$PATH
 
               
 
